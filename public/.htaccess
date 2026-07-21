@@ -1,0 +1,46 @@
+Options -Indexes -MultiViews
+DirectoryIndex index
+
+RewriteEngine On
+
+# Canonical HTTPS host. The Virtualmin certificate must cover both names.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^rumman\.app\.br$ [NC]
+RewriteRule ^ https://rumman.app.br%{REQUEST_URI} [R=301,L,NE]
+
+RewriteRule ^privacy/?$ /privacidade [R=301,L]
+RewriteRule ^delete-account/?$ /excluir-conta [R=301,L]
+
+ErrorDocument 404 /404
+
+<FilesMatch "^[^.]+$">
+  ForceType text/html
+  Header set Content-Type "text/html; charset=UTF-8"
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), geolocation=(), microphone=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'sha256-8s7Hxr73T38T1uzGRfW5BXi23QqipCa3z/2oJGCDddQ='; style-src 'self'; upgrade-insecure-requests"
+
+  <FilesMatch "\.(?:avif|css|ico|js|png|webp|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:xml|txt|webmanifest)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+
+AddType image/avif .avif
+AddType image/webp .webp
+AddType font/woff2 .woff2
+AddType application/manifest+json .webmanifest
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/javascript application/json application/manifest+json application/xml font/woff2 image/svg+xml text/css text/html text/plain text/xml
+</IfModule>

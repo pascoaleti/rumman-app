@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Página não encontrada | Rumman</title><meta name="description" content="A página solicitada não foi encontrada no site do Rumman."><meta name="robots" content="noindex, follow"><meta name="theme-color" content="#FCF9FD"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="preload" href="/assets/fonts/sora-latin-variable.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=20260721-1"><script src="/assets/theme-init.js?v=20260721-1"></script>
+</head>
+<body>
+  <header class="topbar"><nav class="nav" aria-label="Navegação principal"><a class="brand" href="/"><span class="brand-icon"><img src="/assets/rumman-mark-512.webp" width="512" height="512" alt=""></span><span class="brand-name">Rumman</span></a><div class="nav-controls"><button class="theme-toggle" type="button" data-theme-toggle data-label-light="Usar tema claro" data-label-dark="Usar tema escuro" aria-label="Usar tema escuro"><span aria-hidden="true">☾</span></button></div></nav></header>
+  <main id="conteudo"><section class="page-hero"><div class="wrap page-hero-inner"><div><p class="eyebrow">Erro 404</p><h1>Página não encontrada.</h1><p class="hero-lead">O endereço pode ter mudado ou não existir. Volte ao site para conhecer o Rumman e seus recursos.</p><div class="actions"><a class="button primary" href="/">Voltar ao início</a><a class="button secondary" href="mailto:e-mail@rumman.app.br">Falar com o suporte</a></div></div></div></section></main>
+  <footer class="site-footer"><div class="wrap footer-bottom"><span>© 2026 Rumman</span><span>Desenvolvido por <a href="https://pascoal.eti.br" rel="external noopener">pascoal.eti.br</a></span></div></footer>
+  <script src="/assets/site.js?v=20260721-1" defer></script>
+</body>
+</html>

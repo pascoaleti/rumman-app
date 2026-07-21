@@ -1,0 +1,10 @@
+dist/
+release-assets/
+node_modules/
+proof/
+qa-output/
+*.log
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
