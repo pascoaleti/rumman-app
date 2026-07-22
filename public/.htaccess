@@ -25,9 +25,9 @@ ErrorDocument 404 /404
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), geolocation=(), microphone=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
-  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'sha256-8s7Hxr73T38T1uzGRfW5BXi23QqipCa3z/2oJGCDddQ='; style-src 'self'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'sha256-zlDdqmwTwL3tSicJhpCegk2/dgusSGq6NbMizszNktI=' 'sha256-oS03rVHrweXMxZ1SmlEX7FTe0n7CsrlLtyCEtNLTTsk=' 'sha256-pWrKMpvqGqcQF4yIMlozDYWpWtVWb/fbmtl2a1ur3Ug=' 'sha256-NwhwvD1WIvgBgyAnbMTIbjGMGUx4qwmT9O0br7FQ8Ds=' 'sha256-pNMiESdGpe391eIbrwQUwJ/iaXvwBeLo3vG/ZVKp12w=' 'sha256-T8/ChupozxjiZX0MuZC8L9A0au0wAFz+aLIGkWSPymI=' 'sha256-AovnB8INbQNXJ59xh2hGU7jO+/YQxBcTNc2LHT2ZbgI=' 'sha256-XGSOwhVxvsoSHKQz5zyNeVBweiuIYuhh9dMMSoNdNvc=' 'sha256-18KP3OUNNA9UNouG1c5DIscenJ8mRACWKQ1OB1Keb/U=' 'sha256-EXFASdAUnx9RJUtUY01KZXzRUNovBF0dk5Rc1N1ERqY=' 'sha256-/Nx5EKT+FsgwSEzGamb9iCO4KA5hS4xOVIOLy9XSNpI=' 'sha256-4k4DKYh+clGlbmLIthUc2OnpoRG1o5Nk+sgDeayNyfg=' 'sha256-6XwWEIiwv9PMUSHgYZYTrDyQFtpnsEc45ciZHNPk2y8=' 'sha256-zmcntnFR5tytQkb2zM41Bsnw+2o8QK7t39O+IeXtVKo=' 'sha256-rOR7ejcdi/g8tHZ7jsbYHm9+X0AOEbA28HEiYX2mlNA=' 'sha256-L19jV01RtE5FZSbdA4kjyomnucTP3FTpDd4Qw+D2tJc=' 'sha256-Vg7SrOIu7UR/xsNZ5netd4yEXGNa+rPmDv8/j0I3KQg='; style-src 'self'; upgrade-insecure-requests"
 
-  <FilesMatch "\.(?:avif|css|ico|js|png|webp|woff2)$">
+  <FilesMatch "\.(?:avif|css|ico|js|png|svg|webp|woff2)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
@@ -38,6 +38,7 @@ ErrorDocument 404 /404
 
 AddType image/avif .avif
 AddType image/webp .webp
+AddType image/svg+xml .svg
 AddType font/woff2 .woff2
 AddType application/manifest+json .webmanifest
 

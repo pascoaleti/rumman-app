@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-labelledby="rumman-symbol-title rumman-symbol-description">
+  <title id="rumman-symbol-title">Rumman</title>
+  <desc id="rumman-symbol-description">Roma tecnologica facetada com graos e circuitos</desc>
+  <defs>
+    <linearGradient id="body" x1="62" y1="78" x2="274" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A12E67"/>
+      <stop offset="0.48" stop-color="#55165E"/>
+      <stop offset="1" stop-color="#202B60"/>
+    </linearGradient>
+    <linearGradient id="crown" x1="100" y1="12" x2="234" y2="106" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A12E67"/>
+      <stop offset="1" stop-color="#202B60"/>
+    </linearGradient>
+    <linearGradient id="circuit" x1="248" y1="120" x2="352" y2="214" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0B1D1"/>
+      <stop offset="0.5" stop-color="#A12E67"/>
+      <stop offset="1" stop-color="#AEB9FA"/>
+    </linearGradient>
+    <radialGradient id="seed" cx="38%" cy="28%" r="78%">
+      <stop stop-color="#F6B3C7"/>
+      <stop offset="0.3" stop-color="#D9255D"/>
+      <stop offset="1" stop-color="#661144"/>
+    </radialGradient>
+  </defs>
+
+  <g stroke-linejoin="round">
+    <path fill="url(#crown)" stroke="#EBC8E7" stroke-width="2.4" d="M112 91 93 30l47 34 21-53 25 52 48-33-21 64z"/>
+    <path fill="url(#body)" stroke="#C7A1D1" stroke-width="2.4" d="M160 74c-68 0-121 55-121 126 0 79 58 139 135 139 48 0 88-21 113-58l-33-51 24-47-17-53c-23-35-58-56-101-56Z"/>
+
+    <g fill="none" stroke-width="1.8" opacity="0.82">
+      <path stroke="#F0B1D1" d="m42 194 66-73 52 42 55-67M42 194l54 45 64-76 58 47M96 239l25 69 63-52 53 63M108 121l-12 118M160 74v89m0 0 24 93m-64 52 64-52m0 0 70-26M42 194l142 62"/>
+      <path stroke="#AEB9FA" d="m160 74 55 22 46 34M215 96l3 114 60-27M184 256l53 63 50-38M218 210l36 20"/>
+      <path stroke="#E08DB6" d="m93 30 67 44 74-44M140 64l20 99 53-69M108 121l52-47"/>
+    </g>
+
+    <g fill="#FCF9FD">
+      <circle cx="108" cy="121" r="4.6"/><circle cx="42" cy="194" r="4.6"/>
+      <circle cx="96" cy="239" r="4.6"/><circle cx="121" cy="308" r="4.6"/>
+      <circle cx="160" cy="163" r="4.6"/><circle cx="184" cy="256" r="4.6"/>
+      <circle cx="218" cy="210" r="4.6"/><circle cx="237" cy="319" r="4.6"/>
+    </g>
+
+    <path fill="#26122D" stroke="#F3D8E9" stroke-width="7" d="M218 119c27 2 49 18 61 44l-23 24 24 22-23 24 15 28c-18 18-42 29-70 31l-24-34 12-35-15-31 20-26-2-29z"/>
+    <g fill="url(#seed)" stroke="#F08AA1" stroke-width="1.2">
+      <path d="m218 138 17 9-10 20-18-8z"/><path d="m244 151 18 13-16 17-15-12z"/>
+      <path d="m205 170 19 8-9 21-21-8z"/><path d="m235 182 20 6-6 21-22-7z"/>
+      <path d="m260 190 15 14-13 18-17-12z"/><path d="m203 207 20 10-11 20-20-11z"/>
+      <path d="m230 217 19 12-13 19-18-12z"/><path d="m255 232 16 13-14 17-18-12z"/>
+      <path d="m207 244 18 15-15 17-18-15z"/><path d="m231 256 18 11-11 18-19-10z"/>
+    </g>
+
+    <g fill="none" stroke="url(#circuit)" stroke-width="3" stroke-linecap="round">
+      <path d="m267 139 30-22h31"/><path d="m278 157 30-13 22-24"/>
+      <path d="m283 177 34-2 25-20"/><path d="m282 196 42 8 23-1"/>
+      <path d="m278 215 31 15h30"/><path d="m270 233 27 25h27"/>
+    </g>
+    <g fill="#FCF9FD" stroke="#7B3D89" stroke-width="3">
+      <circle cx="328" cy="117" r="5"/><circle cx="330" cy="120" r="5"/>
+      <circle cx="342" cy="155" r="5"/><circle cx="347" cy="203" r="5"/>
+      <circle cx="339" cy="230" r="5"/><circle cx="324" cy="258" r="5"/>
+    </g>
+  </g>
+</svg>

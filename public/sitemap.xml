@@ -1,60 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://rumman.app.br/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://rumman.app.br/privacidade</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rumman.app.br/privacidade"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rumman.app.br/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rumman.app.br/es/privacidad"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rumman.app.br/fr/confidentialite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rumman.app.br/privacidade"/>
-  </url>
-  <url>
-    <loc>https://rumman.app.br/en/privacy</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rumman.app.br/privacidade"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rumman.app.br/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rumman.app.br/es/privacidad"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rumman.app.br/fr/confidentialite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rumman.app.br/privacidade"/>
-  </url>
-  <url>
-    <loc>https://rumman.app.br/es/privacidad</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rumman.app.br/privacidade"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rumman.app.br/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rumman.app.br/es/privacidad"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rumman.app.br/fr/confidentialite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rumman.app.br/privacidade"/>
-  </url>
-  <url>
-    <loc>https://rumman.app.br/fr/confidentialite</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rumman.app.br/privacidade"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rumman.app.br/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rumman.app.br/es/privacidad"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rumman.app.br/fr/confidentialite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rumman.app.br/privacidade"/>
-  </url>
-  <url>
-    <loc>https://rumman.app.br/excluir-conta</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://rumman.app.br/</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://rumman.app.br/recursos</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/como-funciona</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/planos</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/faq</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/blog/</loc><lastmod>2026-07-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/como-fazer-fluxo-de-caixa-pequena-empresa</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/controle-de-estoque-para-pequenas-empresas</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/erp-para-empresa-de-servicos</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/planilha-ou-sistema-de-gestao</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/como-organizar-cadastro-de-clientes</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/orcamento-e-ordem-de-servico-sem-retrabalho</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/como-organizar-compras-e-fornecedores</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/como-digitalizar-documentos-da-empresa</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/ia-na-gestao-de-pequenas-empresas</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/blog/privacidade-e-dados-locais-em-erp</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rumman.app.br/privacidade</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/en/privacy</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/es/privacidad</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/fr/confidentialite</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rumman.app.br/excluir-conta</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
