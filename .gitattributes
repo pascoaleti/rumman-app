@@ -4,3 +4,8 @@
 *.avif binary
 *.ico binary
 *.woff2 binary
+
+# O repositório público documenta o app Android; estes diretórios são a
+# implementação do site institucional e não representam a linguagem do produto.
+public/** linguist-documentation
+scripts/** linguist-documentation
