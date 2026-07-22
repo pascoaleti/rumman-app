@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } 
 import { dirname, join, resolve } from 'node:path';
 
 const root = resolve(process.argv[2] || new URL('../public', import.meta.url).pathname);
-const assetVersion = '20260722-4';
+const assetVersion = '20260722-5';
 const published = '2026-07-22';
 const origin = 'https://rumman.app.br';
 const cspHashes = new Set();
@@ -426,6 +426,20 @@ function writeLocalizedPages(locale) {
 
 Object.keys(localizedPageCopy).forEach(writeLocalizedPages);
 
+function writeLocalizedHomeCycleNodes(locale) {
+  const route = localizedRoutes[locale].home;
+  const file = join(root, route.replace(/^\//, ''), 'index');
+  const classes = ['node-capture', 'node-understand', 'node-confirm', 'node-register', 'node-follow'];
+  const nodes = localizedPageCopy[locale].how.cycle.map(([label], index) => `<li class="${classes[index]}"><span>${String(index + 1).padStart(2, '0')}</span>${label}</li>`).join('');
+  const current = readFileSync(file, 'utf8');
+  const marker = '<div class="brand-orbit"><img src="/assets/illustration-workflow.svg" width="240" height="180" alt="" fetchpriority="high"></div></div></div></section><section class="section problem-section">';
+  const replacement = `<div class="brand-orbit"><img src="/assets/illustration-workflow.svg" width="240" height="180" alt="" fetchpriority="high"></div><ol class="guided-nodes">${nodes}</ol></div></div></section><section class="section problem-section">`;
+  if (!current.includes(marker)) throw new Error(`Ciclo visual nao encontrado para ${locale}.`);
+  writeFileSync(file, current.replace(marker, replacement), 'utf8');
+}
+
+Object.keys(localizedPageCopy).forEach(writeLocalizedHomeCycleNodes);
+
 function articleCard(article) {
   return `<article class="blog-card"><a class="blog-card-visual" href="/blog/${article.slug}" aria-hidden="true" tabindex="-1"><img src="/assets/${article.visual}" width="240" height="180" alt="" loading="lazy"></a><div><p class="blog-meta">${article.category} · 6 min</p><h3><a href="/blog/${article.slug}">${article.title}</a></h3><p>${article.description}</p><a class="text-link" href="/blog/${article.slug}">Ler artigo <span aria-hidden="true">→</span></a></div></article>`;
 }
@@ -453,8 +467,8 @@ for (const [route, locale, current] of fixedRoutes) {
     .replace(/(theme-init\.js\?v=)[^"]+/g, `$1${assetVersion}`)
     .replace(/(site\.js\?v=)[^"]+/g, `$1${assetVersion}`)
     .replace(/<span class="brand-icon">[\s\S]*?<\/span><span class="brand-name">Rumman<\/span>/g, brand())
-    .replace(/<div class="nav-links">[\s\S]*?<\/div><a class="nav-cta"[\s\S]*?<\/a>/, nav(locale, current))
-    .replace(/<nav class="language-switcher"[\s\S]*?<\/nav>/g, '')
+    .replace(/<div class="nav-links">[\s\S]*?<\/div>(?:<nav class="language-switcher[^"]*"[\s\S]*?<\/nav>)?<a class="nav-cta"[\s\S]*?<\/a>/, nav(locale, current))
+    .replace(/<nav class="language-switcher[^"]*"[\s\S]*?<\/nav>/g, '')
     .replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, footer(locale))
     .replaceAll('href="/#recursos"', 'href="/recursos"')
     .replaceAll('href="/#como-funciona"', 'href="/como-funciona"')
