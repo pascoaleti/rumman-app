@@ -1,71 +1,113 @@
-# Rumman - site institucional 0.2.3
+<p align="center">
+  <img src="public/assets/rumman-brand-mark-original.png" width="128" alt="Rumman">
+</p>
 
-Site estático oficial do **Rumman - ERP Inteligente Guiado**, preparado para `https://rumman.app.br`.
+<h1 align="center">Rumman</h1>
 
-## Escopo
+<p align="center"><strong>O ERP que conduz o trabalho de hoje.</strong></p>
 
-- arquitetura multipágina responsiva em tema claro e escuro;
-- símbolo vetorial derivado da marca canônica, sem moldura ou fundo decorativo;
-- páginas independentes para recursos, funcionamento, planos, FAQ e blog;
-- dez artigos editoriais sobre gestão de pequenas empresas;
-- Política de Privacidade em português, inglês, espanhol e francês;
-- página oficial de exclusão de conta e dados;
-- SEO técnico, Open Graph, JSON-LD, sitemap, feed, robots, manifest e 404;
-- headers de segurança, cache, compressão e redirects para Apache/Virtualmin;
-- fontes Inter e Sora locais, licenciadas sob SIL Open Font License 1.1.
+<p align="center">
+  Aplicativo Android local-first para pequenas empresas de serviços organizarem clientes, orçamentos, ordens de serviço, estoque, compras, financeiro e decisões do dia.
+</p>
 
-## Estrutura
+<p align="center">
+  <img alt="Android" src="https://img.shields.io/badge/Android-121212?style=for-the-badge&logo=android&logoColor=3DDC84">
+  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-121212?style=for-the-badge&logo=kotlin&logoColor=7F52FF">
+  <img alt="Jetpack Compose" src="https://img.shields.io/badge/Jetpack_Compose-121212?style=for-the-badge&logo=jetpackcompose&logoColor=4285F4">
+  <img alt="Material 3" src="https://img.shields.io/badge/Material_3-121212?style=for-the-badge&logo=materialdesign&logoColor=BB86FC">
+</p>
+
+<p align="center">
+  <a href="https://rumman.app.br">Site oficial</a> ·
+  <a href="https://rumman.app.br/recursos">Recursos</a> ·
+  <a href="https://rumman.app.br/privacidade">Privacidade</a> ·
+  <a href="https://rumman.app.br/excluir-conta">Excluir conta</a>
+</p>
+
+## Sobre o aplicativo
+
+O Rumman é um ERP Android guiado para negócios que trabalham no fluxo **orçamento → ordem de serviço → material/estoque → compra → execução → cobrança**. O foco inicial são empresas de manutenção, instalação, assistência técnica, climatização e pequenas oficinas.
+
+Em vez de obrigar o usuário a procurar problemas em vários relatórios, a Home **Hoje no Rumman** cruza os dados locais da operação e apresenta uma fila curta de decisões prioritárias. Cada aviso explica o fato encontrado e abre diretamente o módulo correto, sempre com confirmação humana.
+
+## O que já existe no produto
+
+- clientes com cadastro, edição, busca, filtros e histórico;
+- orçamentos com múltiplos itens, aprovação e conversão em ordem de serviço;
+- ordens de serviço integradas ao estoque, ao recebimento e ao financeiro;
+- estoque com entradas, saídas, ajustes, reservas e disponibilidade real;
+- compras com fornecedores, pedidos, recebimento e custo médio ponderado;
+- contas a pagar e a receber integradas ao fluxo operacional;
+- scanner e OCR local-first para documentos;
+- assistente com memória e anexos, acionado somente pelo usuário;
+- autenticação, perfil, biometria e temas claro e escuro;
+- Home guiada com regras locais para pendências e prioridades do dia.
+
+### Exemplos da fila guiada
+
+- cobrar recebimentos vencidos;
+- dar andamento a serviços agendados;
+- repor estoque quando `físico - reservado = disponível` indica falta;
+- regularizar contas vencidas;
+- acompanhar pedidos de compra atrasados;
+- retomar orçamentos enviados sem retorno;
+- orientar o primeiro cadastro da empresa.
+
+As regras iniciais são determinísticas, executadas localmente e baseadas nos dados do próprio negócio. IA é usada como apoio para explicar e interpretar quando necessário, não como promessa de automação mágica.
+
+## Arquitetura Android
 
 ```text
-public/       fonte estático e páginas geradas
-dist/         build auditado e pronto para o Virtualmin
-scripts/      gerador, auditor, build e servidor local
-proof/        evidências internas; nunca entra no repositório público
-qa-output/    relatórios locais; ignorados pelo Git
+app
+├── core
+│   ├── data           # Room, DataStore, Firebase e integrações
+│   ├── domain         # modelos, contratos e regras de negócio
+│   └── designsystem   # Material 3, temas, tipografia e componentes
+└── feature
+    ├── auth
+    ├── home
+    ├── clients
+    ├── operations
+    ├── finance
+    ├── scanner
+    └── assistant
 ```
 
-## Executar localmente
+| Camada | Tecnologias e decisões |
+| --- | --- |
+| UI | Kotlin, Jetpack Compose, Material 3, Navigation Compose |
+| Persistência | Room e DataStore com estratégia local-first |
+| Arquitetura | Projeto modular, fluxo unidirecional e separação por domínio |
+| Conta e proteção | Firebase Authentication, App Check e Play Integrity |
+| Diagnóstico | Firebase Crashlytics |
+| Assistente | Gateway Cloudflare e processamento solicitado pelo usuário |
+| Qualidade | testes, Detekt, Ktlint, Android Lint e R8 |
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\build.ps1
-node .\scripts\dev-server.mjs .\dist 8766
+## Identificação
+
+```text
+Aplicativo: Rumman · ERP Inteligente Guiado
+Plataforma: Android
+Application ID: br.app.rumman
+Desenvolvedor: Pascoal Eti
+Ano de criação: 2026
+Status: desenvolvimento privado
 ```
 
-Acesse `http://127.0.0.1:8766/`.
+O aplicativo ainda não está publicado para uso geral. Recursos em desenvolvimento só são apresentados como disponíveis depois de implementação, testes e validação no Android.
 
-## Build
+## Sobre este repositório público
 
-O build gera as páginas de marketing e blog, recalcula os hashes CSP dos dados estruturados, valida metadados e links internos e copia a saída aprovada para `dist/`. O script também confirma que o destino resolvido continua dentro deste projeto antes de limpar a pasta.
+Este repositório apresenta o **produto Android Rumman**, sua identidade, documentação pública, páginas legais e materiais do domínio oficial. O código-fonte de produção do aplicativo é proprietário e mantido em repositório privado.
 
-## Assets do aplicativo
+O histórico público registra a evolução da marca e do produto sem conceder permissão para copiar, modificar, redistribuir ou criar derivados. Consulte [LICENSE](LICENSE).
 
-O site não usa capturas provisórias, mockups de celular ou telas inventadas. O símbolo vetorial publicado foi desenhado a partir da marca facetada canônica e é mantido junto das provas de origem no repositório privado.
+## Contato
 
-## Rotas
+- Site: [rumman.app.br](https://rumman.app.br)
+- E-mail: [devs@pascoal.eti.br](mailto:devs@pascoal.eti.br)
+- Desenvolvimento: [pascoal.eti.br](https://pascoal.eti.br)
 
-- `/`
-- `/recursos`
-- `/como-funciona`
-- `/planos`
-- `/faq`
-- `/blog`
-- `/blog/{artigo}`
-- `/privacidade`
-- `/en/privacy`
-- `/es/privacidad`
-- `/fr/confidentialite`
-- `/excluir-conta`
-- `/privacy` redireciona para `/privacidade`
-- `/delete-account` redireciona para `/excluir-conta`
+---
 
-### Termos de Uso
-
-`/termos` não integra o build atual. O documento canônico exige nome ou razão social, CPF/CNPJ e endereço completo do fornecedor. A rota somente pode ser criada e publicada depois que o proprietário fornecer e aprovar esses dados, sem placeholders.
-
-## Qualidade
-
-Consulte [QA-REPORT.md](QA-REPORT.md). A medição Lighthouse da home obteve 99/100/100/100. O projeto não usa cookies não essenciais, trackers, CDN de fontes, banco de dados ou chamadas ao backend do aplicativo.
-
-## Licença
-
-O código e o conteúdo do site seguem [LICENSE](LICENSE). As licenças das fontes estão em `public/assets/fonts/`.
+<p align="center">© 2026 Pascoal Eti. Todos os direitos reservados.</p>
