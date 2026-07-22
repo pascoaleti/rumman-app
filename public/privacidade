@@ -26,8 +26,8 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="preload" href="/assets/fonts/sora-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=20260722-3">
-  <script src="/assets/theme-init.js?v=20260722-3"></script>
+  <link rel="stylesheet" href="/assets/site.css?v=20260722-4">
+  <script src="/assets/theme-init.js?v=20260722-4"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -61,7 +61,7 @@
       </article>
     </div>
   </main>
-  <footer class="site-footer"><div class="wrap footer-main"><div class="footer-brand-block"><a class="brand footer-brand" href="/"><span class="brand-icon"><img src="/assets/rumman-brand-mark-original.png" width="680" height="680" alt=""></span><span class="brand-name">Rumman</span></a><p>ERP Android inteligente e guiado para pequenas empresas.</p></div><div class="footer-links"><strong>Produto</strong><a href="/recursos">Recursos</a><a href="/como-funciona">Como funciona</a><a href="/planos">Planos</a><a href="/faq">FAQ</a></div><div class="footer-links"><strong>Conteúdo</strong><a href="/blog/">Blog</a><a href="/privacidade">Privacidade</a><a href="/excluir-conta">Excluir conta</a><a href="mailto:e-mail@rumman.app.br">Suporte</a></div><div class="footer-links"><strong>Desenvolvimento</strong><a href="https://pascoal.eti.br" rel="external noopener">Pascoal Eti</a><a href="mailto:devs@pascoal.eti.br">Contato técnico</a></div></div><div class="wrap footer-bottom"><span>© 2026 Rumman</span><span>Desenvolvido por <a href="https://pascoal.eti.br" rel="external noopener">pascoal.eti.br</a></span></div></footer>
-  <script src="/assets/site.js?v=20260722-3" defer></script>
+  <footer class="site-footer"><div class="wrap footer-main"><div class="footer-brand-block"><a class="brand footer-brand" href="/"><span class="brand-icon"><img src="/assets/rumman-brand-mark-original.png" width="680" height="680" alt=""></span><span class="brand-name">Rumman</span></a><p>ERP Android inteligente e guiado para pequenas empresas.</p></div><div class="footer-links"><strong>Produto</strong><a href="/recursos">Recursos</a><a href="/como-funciona">Como funciona</a><a href="/planos">Planos</a><a href="/faq">FAQ</a></div><div class="footer-links"><strong>Conteúdo</strong><a href="/blog/">Blog</a><a href="/privacidade" aria-current="page">Privacidade</a><a href="/excluir-conta">Excluir conta</a><a href="mailto:e-mail@rumman.app.br">Suporte</a></div><div class="footer-links"><strong>Desenvolvimento</strong><a href="mailto:devs@pascoal.eti.br">Contato técnico</a></div></div><div class="wrap footer-bottom"><span>© 2026 Rumman</span><nav class="language-switcher footer-language" aria-label="Language"><span class="visually-hidden">Language</span><a href="/privacidade" lang="pt-BR" aria-current="page">PT</a><a href="/en/privacy" lang="en">EN</a><a href="/es/privacidad" lang="es">ES</a><a href="/fr/confidentialite" lang="fr">FR</a></nav><span>Desenvolvido por <a href="https://pascoal.eti.br" rel="external noopener">pascoal.eti.br</a></span></div></footer>
+  <script src="/assets/site.js?v=20260722-4" defer></script>
 </body>
 </html>

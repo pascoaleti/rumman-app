@@ -1,4 +1,4 @@
-# Rumman - site institucional 0.2.1
+# Rumman - site institucional 0.2.2
 
 Site estático oficial do **Rumman - ERP Inteligente Guiado**, preparado para `https://rumman.app.br`.
 

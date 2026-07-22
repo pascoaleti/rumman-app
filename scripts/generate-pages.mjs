@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } 
 import { dirname, join, resolve } from 'node:path';
 
 const root = resolve(process.argv[2] || new URL('../public', import.meta.url).pathname);
-const assetVersion = '20260722-3';
+const assetVersion = '20260722-4';
 const published = '2026-07-22';
 const origin = 'https://rumman.app.br';
 const cspHashes = new Set();
@@ -192,8 +192,10 @@ function routeFor(locale, page) {
 }
 
 function languageSwitcher(locale, current) {
-  return `<nav class="language-switcher nav-language" aria-label="Language"><span class="visually-hidden">Language</span>${Object.keys(localeMeta).map(code => `<a href="${routeFor(code, current || 'home')}" lang="${localeMeta[code].lang}"${code === locale ? ' aria-current="page"' : ''}>${localeMeta[code].code}</a>`).join('')}</nav>`;
+  return `<nav class="language-switcher footer-language" aria-label="Language"><span class="visually-hidden">Language</span>${Object.keys(localeMeta).map(code => `<a href="${routeFor(code, current || 'home')}" lang="${localeMeta[code].lang}"${code === locale ? ' aria-current="page"' : ''}>${localeMeta[code].code}</a>`).join('')}</nav>`;
 }
+
+let renderedCurrent = 'home';
 
 function nav(locale = 'pt', current = '') {
   const l = labels[locale];
@@ -201,7 +203,7 @@ function nav(locale = 'pt', current = '') {
     ['home', routeFor(locale, 'home'), l.home], ['features', routeFor(locale, 'features'), l.features], ['how', routeFor(locale, 'how'), l.how],
     ['plans', routeFor(locale, 'plans'), l.plans], ['faq', routeFor(locale, 'faq'), l.faq], ['blog', routeFor(locale, 'blog'), l.blog], ['privacy', routeFor(locale, 'privacy'), l.privacy]
   ];
-  return `<div class="nav-links">${links.map(([key, href, text]) => `<a class="nav-link" href="${href}"${current === key ? ' aria-current="page"' : ''}>${text}</a>`).join('')}</div>${languageSwitcher(locale, current)}<a class="nav-cta" href="${routeFor(locale, 'plans')}">${l.cta}</a>`;
+  return `<div class="nav-links">${links.map(([key, href, text]) => `<a class="nav-link" href="${href}"${current === key ? ' aria-current="page"' : ''}>${text}</a>`).join('')}</div><a class="nav-cta" href="${routeFor(locale, 'plans')}">${l.cta}</a>`;
 }
 
 function brand() {
@@ -220,10 +222,11 @@ function header(current = '', locale = 'pt') {
   return `<header class="topbar"><nav class="nav" aria-label="${locale === 'en' ? 'Main navigation' : locale === 'es' ? 'Navegación principal' : locale === 'fr' ? 'Navigation principale' : 'Navegação principal'}"><a class="brand" href="${routeFor(locale, 'home')}" aria-label="Rumman — ${meta.homeLabel}">${brand()}</a><div class="nav-panel" id="primary-navigation" data-menu-panel data-open="false">${nav(locale, current)}</div><div class="nav-controls"><button class="theme-toggle" type="button" data-theme-toggle data-label-light="${light}" data-label-dark="${dark}" aria-label="${dark}" title="${dark}"><span aria-hidden="true">☾</span></button><button class="menu-toggle" type="button" data-menu-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="${menuOpen}"><span></span><span></span><span></span></button></div></nav></header>`;
 }
 
-function footer(locale = 'pt') {
+function footer(locale = 'pt', current = renderedCurrent) {
   const copy = locale === 'en' ? { description: 'Guided intelligent Android ERP for small businesses.', product: 'Product', content: 'Content', development: 'Development', support: 'Support', technical: 'Technical contact', built: 'Built by' } : locale === 'es' ? { description: 'ERP Android inteligente y guiado para pequeñas empresas.', product: 'Producto', content: 'Contenido', development: 'Desarrollo', support: 'Soporte', technical: 'Contacto técnico', built: 'Desarrollado por' } : locale === 'fr' ? { description: 'ERP Android intelligent et guidé pour les petites entreprises.', product: 'Produit', content: 'Contenu', development: 'Développement', support: 'Assistance', technical: 'Contact technique', built: 'Développé par' } : { description: 'ERP Android inteligente e guiado para pequenas empresas.', product: 'Produto', content: 'Conteúdo', development: 'Desenvolvimento', support: 'Suporte', technical: 'Contato técnico', built: 'Desenvolvido por' };
   const l = labels[locale];
-  return `<footer class="site-footer"><div class="wrap footer-main"><div class="footer-brand-block"><a class="brand footer-brand" href="${routeFor(locale, 'home')}">${brand()}</a><p>${copy.description}</p></div><div class="footer-links"><strong>${copy.product}</strong><a href="${routeFor(locale, 'features')}">${l.features}</a><a href="${routeFor(locale, 'how')}">${l.how}</a><a href="${routeFor(locale, 'plans')}">${l.plans}</a><a href="${routeFor(locale, 'faq')}">FAQ</a></div><div class="footer-links"><strong>${copy.content}</strong><a href="${routeFor(locale, 'blog')}">Blog</a><a href="${routeFor(locale, 'privacy')}">${l.privacy}</a><a href="/excluir-conta">${locale === 'en' ? 'Delete account' : locale === 'es' ? 'Eliminar cuenta' : locale === 'fr' ? 'Supprimer le compte' : 'Excluir conta'}</a><a href="mailto:e-mail@rumman.app.br">${copy.support}</a></div><div class="footer-links"><strong>${copy.development}</strong><a href="https://pascoal.eti.br" rel="external noopener">Pascoal Eti</a><a href="mailto:devs@pascoal.eti.br">${copy.technical}</a></div></div><div class="wrap footer-bottom"><span>© 2026 Rumman</span><span>${copy.built} <a href="https://pascoal.eti.br" rel="external noopener">pascoal.eti.br</a></span></div></footer>`;
+  const link = (key, text) => `<a href="${routeFor(locale, key)}"${current === key ? ' aria-current="page"' : ''}>${text}</a>`;
+  return `<footer class="site-footer"><div class="wrap footer-main"><div class="footer-brand-block"><a class="brand footer-brand" href="${routeFor(locale, 'home')}">${brand()}</a><p>${copy.description}</p></div><div class="footer-links"><strong>${copy.product}</strong>${link('features', l.features)}${link('how', l.how)}${link('plans', l.plans)}${link('faq', 'FAQ')}</div><div class="footer-links"><strong>${copy.content}</strong>${link('blog', 'Blog')}${link('privacy', l.privacy)}<a href="/excluir-conta">${locale === 'en' ? 'Delete account' : locale === 'es' ? 'Eliminar cuenta' : locale === 'fr' ? 'Supprimer le compte' : 'Excluir conta'}</a><a href="mailto:e-mail@rumman.app.br">${copy.support}</a></div><div class="footer-links"><strong>${copy.development}</strong><a href="mailto:devs@pascoal.eti.br">${copy.technical}</a></div></div><div class="wrap footer-bottom"><span>© 2026 Rumman</span>${languageSwitcher(locale, current)}<span>${copy.built} <a href="https://pascoal.eti.br" rel="external noopener">pascoal.eti.br</a></span></div></footer>`;
 }
 
 function jsonScript(data) {
@@ -242,6 +245,7 @@ function shell({ title, description, canonical, current, body, structured, type 
   const url = `${origin}${canonical}`;
   const meta = localeMeta[locale];
   const alternates = alternatesKey ? Object.keys(localeMeta).map(code => `<link rel="alternate" hreflang="${localeMeta[code].lang}" href="${origin}${routeFor(code, alternatesKey)}">`).join('') : '';
+  renderedCurrent = current || 'home';
   return `<!doctype html><html lang="${meta.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${title}</title><meta name="description" content="${description}"><meta name="robots" content="index, follow, max-image-preview:large"><link rel="canonical" href="${url}">${alternates}<meta property="og:locale" content="${meta.og}"><meta property="og:type" content="${type}"><meta property="og:site_name" content="Rumman"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}/assets/rumman-social.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${origin}/assets/rumman-social.png"><meta name="theme-color" content="#FCF9FD" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#17121F" media="(prefers-color-scheme: dark)"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/sora-latin-variable.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/site.css?v=${assetVersion}"><script src="/assets/theme-init.js?v=${assetVersion}"></script>${jsonScript(structured)}</head><body><a class="skip-link" href="#conteudo">${meta.skip}</a>${header(current, locale)}<main id="conteudo">${body}</main>${footer(locale)}<script src="/assets/site.js?v=${assetVersion}" defer></script></body></html>`.replaceAll('href="/blog"', 'href="/blog/"');
 }
 
@@ -443,6 +447,7 @@ const fixedRoutes = [
 ];
 for (const [route, locale, current] of fixedRoutes) {
   const file = join(root, route);
+  renderedCurrent = current || 'home';
   let html = readFileSync(file, 'utf8');
   html = html.replace(/(site\.css\?v=)[^"]+/g, `$1${assetVersion}`)
     .replace(/(theme-init\.js\?v=)[^"]+/g, `$1${assetVersion}`)
