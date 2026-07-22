@@ -41,6 +41,7 @@ Em vez de obrigar o usuário a procurar problemas em vários relatórios, a Home
 - scanner e OCR local-first para documentos;
 - assistente com memória e anexos, acionado somente pelo usuário;
 - autenticação, perfil, biometria e temas claro e escuro;
+- proteção da base operacional pelo Android Auto Backup, quando ativado pelo usuário;
 - Home guiada com regras locais para pendências e prioridades do dia.
 
 ### Exemplos da fila guiada
@@ -54,6 +55,14 @@ Em vez de obrigar o usuário a procurar problemas em vários relatórios, a Home
 - orientar o primeiro cadastro da empresa.
 
 As regras iniciais são determinísticas, executadas localmente e baseadas nos dados do próprio negócio. IA é usada como apoio para explicar e interpretar quando necessário, não como promessa de automação mágica.
+
+## Backup e troca de aparelho
+
+Perdeu ou trocou o celular? Com o backup do aparelho ativado, o Android pode restaurar a base operacional do Rumman usando a mesma Conta Google. O banco Room `rumman.db` participa do Android Auto Backup e da transferência entre aparelhos pela área privada de backup da conta do próprio cliente, sem usar Firebase, VPS ou armazenamento pago pelo Rumman.
+
+Essa camada é controlada pelo Android, tem limite total de 25 MB por aplicativo e normalmente é executada uma vez ao dia quando as condições do sistema são atendidas. Credenciais, tokens, cache, imagens digitalizadas e anexos são excluídos.
+
+Exportação portátil criptografada `.rumman`, backup de anexos e sincronização multiusuário ainda não fazem parte desta camada e não são apresentados como recursos prontos.
 
 ## Arquitetura Android
 
@@ -77,6 +86,7 @@ app
 | --- | --- |
 | UI | Kotlin, Jetpack Compose, Material 3, Navigation Compose |
 | Persistência | Room e DataStore com estratégia local-first |
+| Proteção da base | Android Auto Backup e transferência entre aparelhos, quando habilitados na Conta Google |
 | Arquitetura | Projeto modular, fluxo unidirecional e separação por domínio |
 | Conta e proteção | Firebase Authentication, App Check e Play Integrity |
 | Diagnóstico | Firebase Crashlytics |
