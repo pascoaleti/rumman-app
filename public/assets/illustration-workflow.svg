@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" aria-hidden="true">
+  <defs><linearGradient id="workflow-gradient" x1="34" y1="28" x2="205" y2="150" gradientUnits="userSpaceOnUse"><stop stop-color="#64206C"/><stop offset=".56" stop-color="#B5417E"/><stop offset="1" stop-color="#3D5DAD"/></linearGradient></defs>
+  <path d="M42 133C65 151 82 149 100 132S127 96 148 101s29 31 53 21" stroke="url(#workflow-gradient)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="42" cy="133" r="14" fill="#64206C"/><circle cx="100" cy="132" r="14" fill="#B5417E"/><circle cx="148" cy="101" r="14" fill="#A12E67"/><circle cx="201" cy="122" r="14" fill="#3D5DAD"/>
+  <path d="M44 58h74a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12H44a12 12 0 0 1-12-12V70a12 12 0 0 1 12-12Z" stroke="#9D84A7" stroke-width="5"/>
+  <path d="M54 78h36M54 92h54" stroke="#D1BED7" stroke-width="5" stroke-linecap="round"/>
+  <path d="m159 63 13 13 28-31" stroke="#3D5DAD" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

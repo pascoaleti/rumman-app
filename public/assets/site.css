@@ -40,6 +40,8 @@
   --card-shadow: 0 8px 24px rgba(32, 43, 96, 0.08);
   --header-height: 72px;
   --wrap: 1180px;
+  --section-space: clamp(68px, 8vw, 94px);
+  --page-space: clamp(64px, 7vw, 78px);
 }
 
 :root[data-theme='dark'] {
@@ -203,7 +205,7 @@ a {
   gap: 10px;
   font-family: Sora, sans-serif;
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1;
   text-decoration: none;
 }
@@ -229,15 +231,13 @@ a {
 }
 
 .brand-name {
-  background: linear-gradient(90deg, #55165e 0%, #a12e67 52%, #202b60 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: #8f2862;
+  font-family: Sora, sans-serif;
+  font-weight: 800;
 }
 
 :root[data-theme='dark'] .brand-name {
-  background-image: linear-gradient(90deg, #f0b1d1 0%, #e08db6 52%, #aeb9fa 100%);
+  color: #f0b1d1;
 }
 
 .nav-panel,
@@ -249,6 +249,16 @@ a {
 
 .nav-panel {
   gap: 10px;
+}
+
+.nav-language {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.nav-language a {
+  min-width: 30px;
+  padding: 7px 6px;
 }
 
 .nav-links {
@@ -507,7 +517,7 @@ h3 {
 .node-follow { top: 29%; left: 0; }
 
 .section {
-  padding-block: 94px;
+  padding-block: var(--section-space);
 }
 
 .section-head {
@@ -904,7 +914,7 @@ h3 {
 }
 
 .final-cta {
-  padding-block: 76px;
+  padding-block: var(--page-space);
   border-top: 1px solid var(--line);
   background: var(--primary-deep);
   color: #ffffff;
@@ -945,7 +955,7 @@ h3 {
   display: grid;
   grid-template-columns: 1.5fr repeat(3, 0.72fr);
   gap: 50px;
-  padding-block: 56px;
+  padding-block: var(--page-space);
 }
 
 .footer-brand-block > p {
@@ -981,7 +991,7 @@ h3 {
 }
 
 .page-hero {
-  padding-block: 76px 62px;
+  padding-block: var(--page-space);
   border-bottom: 1px solid var(--line);
   background: var(--bg-soft);
 }
@@ -1293,6 +1303,10 @@ h3 {
     padding-inline: 16px;
   }
 
+  .nav-language {
+    align-self: flex-start;
+  }
+
   .nav-cta {
     justify-content: center;
   }
@@ -1359,9 +1373,14 @@ h3 {
 }
 
 @media (max-width: 620px) {
+  :root {
+    --section-space: 52px;
+    --page-space: 52px;
+  }
+
   .wrap,
   .nav {
-    width: min(calc(100% - 28px), var(--wrap));
+    width: min(calc(100% - 20px), var(--wrap));
   }
 
   .brand-name {
@@ -1661,7 +1680,7 @@ h3 {
 }
 
 .article-header {
-  padding-block: 64px;
+  padding-block: var(--page-space);
   border-bottom: 1px solid var(--line);
   background: var(--bg-soft);
 }
@@ -1717,7 +1736,7 @@ h3 {
   grid-template-columns: minmax(0, 760px) minmax(240px, 300px);
   justify-content: space-between;
   gap: 80px;
-  padding-block: 68px 92px;
+  padding-block: var(--section-space);
 }
 
 .article-content {
@@ -1835,7 +1854,7 @@ h3 {
 @media (max-width: 620px) {
   .marketing-hero,
   .article-header {
-    padding-block: 50px;
+    padding-block: var(--page-space);
   }
 
   .page-symbol,
