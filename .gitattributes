@@ -9,3 +9,6 @@
 # implementação do site institucional e não representam a linguagem do produto.
 public/** linguist-documentation
 scripts/** linguist-documentation
+
+# Amostras arquiteturais Kotlin representam publicamente a linguagem do app.
+android-sample/** linguist-detectable=true

@@ -117,6 +117,8 @@ O aplicativo ainda não está publicado para uso geral. Recursos em desenvolvime
 
 Este repositório apresenta o **produto Android Rumman**, sua identidade, documentação pública, páginas legais e materiais do domínio oficial. O código-fonte de produção do aplicativo é proprietário e mantido em repositório privado.
 
+O diretório [`android-sample`](android-sample) preserva pequenas amostras arquiteturais em Kotlin para documentar publicamente a linguagem e os princípios do aplicativo. Elas não substituem nem expõem a implementação proprietária de produção.
+
 O histórico público registra a evolução da marca e do produto sem conceder permissão para copiar, modificar, redistribuir ou criar derivados. Consulte [LICENSE](LICENSE).
 
 ## Contato
