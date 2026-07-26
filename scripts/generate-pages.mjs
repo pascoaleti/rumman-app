@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } 
 import { dirname, join, resolve } from 'node:path';
 
 const root = resolve(process.argv[2] || new URL('../public', import.meta.url).pathname);
-const assetVersion = '20260726-3';
+const assetVersion = '20260726-4';
 const published = '2026-07-26';
 const origin = 'https://rumman.app.br';
 const cspHashes = new Set();
