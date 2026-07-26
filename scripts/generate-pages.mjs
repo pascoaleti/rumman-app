@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } 
 import { dirname, join, resolve } from 'node:path';
 
 const root = resolve(process.argv[2] || new URL('../public', import.meta.url).pathname);
-const assetVersion = '20260726-2';
+const assetVersion = '20260726-3';
 const published = '2026-07-26';
 const origin = 'https://rumman.app.br';
 const cspHashes = new Set();
@@ -236,7 +236,7 @@ function nav(locale = 'pt', current = '') {
 }
 
 function brand() {
-  return `<span class="brand-icon"><img src="/assets/rumman-brand-mark-original.png" width="680" height="680" alt=""></span><span class="brand-name">Rumman</span>`;
+  return `<span class="brand-icon"><img src="/assets/icon-192.png" width="192" height="192" alt=""></span><span class="brand-name">Rumman</span>`;
 }
 
 function illustration(asset, className = 'page-symbol') {
