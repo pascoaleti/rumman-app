@@ -35,13 +35,19 @@ Em vez de obrigar o usuário a procurar problemas em vários relatórios, a Home
 - clientes com cadastro, edição, busca, filtros e histórico;
 - orçamentos com múltiplos itens, aprovação e conversão em ordem de serviço;
 - ordens de serviço integradas ao estoque, ao recebimento e ao financeiro;
-- estoque com entradas, saídas, ajustes, reservas e disponibilidade real;
-- compras com fornecedores, pedidos, recebimento e custo médio ponderado;
+- estoque por depósito, loja, veículo ou outro local, com entradas, saídas, ajustes, reservas, transferências atômicas, inventário físico e disponibilidade real;
+- separação de itens por ordem, retirada ou entrega confirmada e baixa de estoque no momento correto;
+- catálogo com produtos, serviços, imagens opcionais e produtos compostos ou kits;
+- compras com fornecedores, pedidos, recebimento, custo médio ponderado e integração com contas a pagar;
+- locações com reserva, período, local de saída, retirada, devolução, recebimento e conclusão;
 - contas a pagar e a receber integradas ao fluxo operacional;
+- projeção local de caixa em 7, 30 e 90 dias, DRE gerencial, comparação por período e exportações PDF/XLSX;
 - scanner e OCR local-first para documentos;
-- assistente com memória e anexos, acionado somente pelo usuário;
+- assistente com memória, ditado opcional e anexos selecionados, acionado somente pelo usuário;
 - autenticação, perfil, biometria e temas claro e escuro;
 - proteção da base operacional pelo Android Auto Backup, quando ativado pelo usuário;
+- backup portátil criptografado `.rumman` e sincronização estruturada do workspace para aparelhos autorizados;
+- equipe com papéis e centro de conflitos;
 - Home guiada com regras locais para pendências e prioridades do dia.
 
 ### Exemplos da fila guiada
@@ -62,7 +68,7 @@ Perdeu ou trocou o celular? Com o backup do aparelho ativado, o Android pode res
 
 Essa camada é controlada pelo Android, tem limite total de 25 MB por aplicativo e normalmente é executada uma vez ao dia quando as condições do sistema são atendidas. Credenciais, tokens, cache, imagens digitalizadas e anexos são excluídos.
 
-Exportação portátil criptografada `.rumman`, backup de anexos e sincronização multiusuário ainda não fazem parte desta camada e não são apresentados como recursos prontos.
+O backup portátil criptografado `.rumman` e a sincronização estruturada do workspace são recursos separados do Android Auto Backup. Fotos, arquivos externos, credenciais, tokens e caminhos locais não entram automaticamente no payload de sincronização.
 
 ## Arquitetura Android
 
@@ -115,9 +121,10 @@ O histórico público registra a evolução da marca e do produto sem conceder p
 ## Contato
 
 - Site: [rumman.app.br](https://rumman.app.br)
-- E-mail: [devs@pascoal.eti.br](mailto:devs@pascoal.eti.br)
+- Comercial, suporte e privacidade: [e-mail@rumman.app.br](mailto:e-mail@rumman.app.br)
+- Contato técnico: [devs@pascoal.eti.br](mailto:devs@pascoal.eti.br)
 - Desenvolvimento: [pascoal.eti.br](https://pascoal.eti.br)
 
 ---
 
-<p align="center">© 2026 Pascoal Eti. Todos os direitos reservados.</p>
+<p align="center">© 2026 Rumman · Feito com amor no Brasil.</p>

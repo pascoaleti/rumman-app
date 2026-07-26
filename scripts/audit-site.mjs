@@ -4,6 +4,52 @@ import { extname, join, relative, resolve, sep } from 'node:path';
 const root = resolve(process.argv[2] || new URL('../dist', import.meta.url).pathname);
 const failures = [];
 const htmlFiles = [];
+const requiredRoutes = [
+  '/',
+  '/recursos',
+  '/como-funciona',
+  '/como-usar',
+  '/casos-de-uso',
+  '/planos',
+  '/faq',
+  '/blog',
+  '/privacidade',
+  '/excluir-conta',
+  '/suporte',
+  '/en',
+  '/en/features',
+  '/en/how-it-works',
+  '/en/how-to-use',
+  '/en/use-cases',
+  '/en/plans',
+  '/en/faq',
+  '/en/blog',
+  '/en/privacy',
+  '/en/delete-account',
+  '/en/support',
+  '/es',
+  '/es/funciones',
+  '/es/como-funciona',
+  '/es/como-usar',
+  '/es/casos-de-uso',
+  '/es/planes',
+  '/es/preguntas-frecuentes',
+  '/es/blog',
+  '/es/privacidad',
+  '/es/eliminar-cuenta',
+  '/es/soporte',
+  '/fr',
+  '/fr/fonctionnalites',
+  '/fr/fonctionnement',
+  '/fr/mode-emploi',
+  '/fr/cas-usage',
+  '/fr/forfaits',
+  '/fr/questions-frequentes',
+  '/fr/blog',
+  '/fr/confidentialite',
+  '/fr/supprimer-compte',
+  '/fr/assistance'
+];
 
 function walk(directory) {
   for (const name of readdirSync(directory)) {
@@ -47,6 +93,10 @@ for (const file of htmlFiles) {
   if (count(html, /<h1\b/gi) !== 1) failures.push(`${route}: deve conter exatamente um H1`);
   if (/\son(?:click|load|error|submit)=/i.test(html)) failures.push(`${route}: evento inline encontrado`);
   if (/\sstyle=/i.test(html)) failures.push(`${route}: estilo inline encontrado`);
+  if (/"@type"\s*:\s*"Offer"/i.test(html)) failures.push(`${route}: oferta comercial ativa encontrada`);
+  if (/disponível para download no Google Play|baixe agora|instale agora|assine agora/i.test(html)) {
+    failures.push(`${route}: promessa prematura de disponibilidade encontrada`);
+  }
 
   for (const match of html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)) {
     const openTag = match[0].slice(0, match[0].indexOf('>') + 1);
@@ -73,6 +123,11 @@ const sitemap = readFileSync(join(root, 'sitemap.xml'), 'utf8');
 const sitemapUrls = count(sitemap, /<url>/g);
 if (sitemapUrls !== htmlFiles.length - 1) {
   failures.push(`sitemap: ${sitemapUrls} URLs para ${htmlFiles.length - 1} páginas indexáveis`);
+}
+
+const generatedRoutes = new Set(htmlFiles.map(routeFor));
+for (const route of requiredRoutes) {
+  if (!generatedRoutes.has(route)) failures.push(`${route}: rota obrigatória ausente`);
 }
 
 if (failures.length) {
