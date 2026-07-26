@@ -1436,17 +1436,27 @@ h3 {
     --page-space: 52px;
   }
 
-  .wrap,
-  .nav {
+  main {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .wrap {
     width: 100%;
     max-width: var(--wrap);
-    padding-right: 15px;
-    padding-left: 15px;
+  }
+
+  .nav,
+  .site-footer .wrap {
+    width: 100%;
+    max-width: var(--wrap);
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   .nav-panel {
-    right: 15px;
-    left: 15px;
+    right: 10px;
+    left: 10px;
     width: auto;
     border: 1px solid var(--line);
     border-top: 0;

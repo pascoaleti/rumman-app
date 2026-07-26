@@ -21,6 +21,7 @@
   <a href="https://rumman.app.br">Site oficial</a> ·
   <a href="https://rumman.app.br/recursos">Recursos</a> ·
   <a href="https://rumman.app.br/privacidade">Privacidade</a> ·
+  <a href="https://rumman.app.br/termos">Termos</a> ·
   <a href="https://rumman.app.br/excluir-conta">Excluir conta</a>
 </p>
 

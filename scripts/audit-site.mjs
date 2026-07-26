@@ -14,6 +14,7 @@ const requiredRoutes = [
   '/faq',
   '/blog',
   '/privacidade',
+  '/termos',
   '/excluir-conta',
   '/suporte',
   '/en',
@@ -25,6 +26,7 @@ const requiredRoutes = [
   '/en/faq',
   '/en/blog',
   '/en/privacy',
+  '/en/terms',
   '/en/delete-account',
   '/en/support',
   '/es',
@@ -36,6 +38,7 @@ const requiredRoutes = [
   '/es/preguntas-frecuentes',
   '/es/blog',
   '/es/privacidad',
+  '/es/terminos',
   '/es/eliminar-cuenta',
   '/es/soporte',
   '/fr',
@@ -47,6 +50,7 @@ const requiredRoutes = [
   '/fr/questions-frequentes',
   '/fr/blog',
   '/fr/confidentialite',
+  '/fr/conditions',
   '/fr/supprimer-compte',
   '/fr/assistance'
 ];
