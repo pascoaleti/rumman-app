@@ -108,10 +108,10 @@ Plataforma: Android
 Application ID: br.app.rumman
 Desenvolvedor: Pascoal Eti
 Ano de criação: 2026
-Status: desenvolvimento privado
+Status: testes fechados no Google Play
 ```
 
-O aplicativo ainda não está publicado para uso geral. Recursos em desenvolvimento só são apresentados como disponíveis depois de implementação, testes e validação no Android.
+O aplicativo está em testes fechados no Google Play e ainda não está disponível para uso geral. Recursos em desenvolvimento só são apresentados como disponíveis depois de implementação, testes e validação no Android.
 
 ## Sobre este repositório público
 

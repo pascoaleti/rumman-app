@@ -4,6 +4,16 @@ import { extname, join, relative, resolve, sep } from 'node:path';
 const root = resolve(process.argv[2] || new URL('../dist', import.meta.url).pathname);
 const failures = [];
 const htmlFiles = [];
+const requiredScreens = [
+  '01-visao-geral.webp',
+  '02-fluxo-guiado.webp',
+  '03-catalogo.webp',
+  '04-clientes.webp',
+  '05-financeiro.webp',
+  '06-estoque.webp',
+  '07-locacoes.webp',
+  '08-assistente.webp'
+];
 const requiredRoutes = [
   '/',
   '/recursos',
@@ -101,6 +111,12 @@ for (const file of htmlFiles) {
   if (/disponível para download no Google Play|baixe agora|instale agora|assine agora/i.test(html)) {
     failures.push(`${route}: promessa prematura de disponibilidade encontrada`);
   }
+  if (/prepara(?:ção|cao) para testes fechados|being prepared for closed testing|preparaci[oó]n para pruebas cerradas|pr[eé]paration (?:aux|pour les) tests ferm[eé]s/i.test(html)) {
+    failures.push(`${route}: estado antigo de testes fechados encontrado`);
+  }
+  if (/@gmail\.com|BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY|(?:api[_-]?key|secret|password|passwd)\s*[:=]/i.test(html)) {
+    failures.push(`${route}: possível dado sensível encontrado`);
+  }
 
   for (const match of html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)) {
     const openTag = match[0].slice(0, match[0].indexOf('>') + 1);
@@ -132,6 +148,23 @@ if (sitemapUrls !== htmlFiles.length - 1) {
 const generatedRoutes = new Set(htmlFiles.map(routeFor));
 for (const route of requiredRoutes) {
   if (!generatedRoutes.has(route)) failures.push(`${route}: rota obrigatória ausente`);
+}
+
+for (const screen of requiredScreens) {
+  const screenPath = join(root, 'screenshots', screen);
+  if (!existsSync(screenPath)) failures.push(`screenshots/${screen}: tela final ausente`);
+}
+
+const guide = readFileSync(join(root, 'como-usar'), 'utf8');
+for (const screen of requiredScreens) {
+  if (!guide.includes(`/screenshots/${screen}`)) {
+    failures.push(`/como-usar: tela final não referenciada ${screen}`);
+  }
+}
+
+const home = readFileSync(join(root, 'index'), 'utf8');
+if (!/Em testes fechados no Google Play/i.test(home)) {
+  failures.push('/: estado real de testes fechados ausente');
 }
 
 if (failures.length) {

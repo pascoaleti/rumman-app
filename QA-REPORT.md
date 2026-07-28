@@ -1,67 +1,75 @@
-# Relatório de qualidade - Rumman site 0.2.0
+# Relatorio de qualidade - Rumman site 0.3.4
 
-Data: 22 de julho de 2026.
+Data: 28 de julho de 2026.
 
-## Lighthouse
+## Escopo validado
 
-Auditoria local da home em Chromium headless:
+- 89 paginas HTML geradas;
+- 88 URLs indexaveis no sitemap;
+- 10 artigos publicados em quatro idiomas;
+- oito capturas finais do aplicativo, convertidas para WebP e usadas na pagina Como usar;
+- home, Recursos, Como funciona, Como usar, Casos de uso, Planos, FAQ, Blog, paginas legais, suporte e 404;
+- status comercial apresentado como testes fechados no Google Play.
 
-| Categoria | Resultado | Meta |
-|---|---:|---:|
-| Performance | 99 | >= 90 |
-| Accessibility | 100 | >= 95 |
-| Best Practices | 100 | >= 95 |
-| SEO | 100 | >= 95 |
+## Lighthouse local
 
-- FCP: 1,1 s;
-- LCP: 1,8 s;
+Auditoria mobile da home em Chromium headless:
+
+| Categoria | Resultado |
+|---|---:|
+| Performance | 84 |
+| Accessibility | 100 |
+| Best Practices | 92 |
+| SEO | 100 |
+
+- FCP: 1,6 s;
+- LCP: 4,5 s;
 - TBT: 0 ms;
 - CLS: 0.
+
+O teste foi executado em ambiente local compartilhado. A validacao de producao deve considerar tambem cache, compressao e latencia reais do dominio.
 
 ## Teste visual e responsivo
 
 Temas claro e escuro auditados em desktop e celular.
 
-- nenhuma rolagem horizontal;
-- nenhuma sobreposição ou texto cortado;
-- margens laterais consistentes;
-- menu completo em desktop e menu recolhido em celular;
-- símbolo vetorial transparente e sem moldura no cabeçalho e nas seções de marca;
-- artigos com imagem pequena no topo, breadcrumb responsivo e leitura sem compressão;
-- contraste de botões e CTAs ajustado para fundos profundos no tema escuro;
-- página legal com sumário responsivo e seletor de idioma sem colisão.
+- viewport mobile de 390 x 844 sem rolagem horizontal;
+- margem lateral de 15 px preservada no cabecalho, conteudo e rodape;
+- menu recolhido funcional, com estado e rotulo acessiveis;
+- galeria com uma tela por linha no celular, duas no tablet e quatro no desktop;
+- imagens sem cortes, distorcao ou sobreposicao;
+- oito telas finais renderizadas em 720 x 1280;
+- rodape, seletor de idioma, botoes e links sem colisao;
+- foco visivel e navegacao por teclado preservados.
 
-## Rotas e semântica
+## Rotas, semantica e SEO
 
-- home, Recursos, Como funciona, Planos, FAQ, Blog, dez artigos, quatro idiomas da Privacidade, Exclusão de Conta e 404 carregadas localmente;
-- `lang`, `title`, H1, canonical e robots conferidos;
+- um H1 por pagina;
+- `lang`, `title`, description, canonical, robots e hreflang conferidos;
+- `x-default` aponta para a versao em portugues;
 - 404 com `noindex, follow`;
-- conteúdo essencial disponível sem JavaScript;
-- menu móvel anuncia abrir/fechar no idioma da página;
-- nenhum erro ou aviso no console durante a auditoria;
-- build automatizado validou 22 páginas, 21 URLs indexáveis, JSON-LD e links internos.
+- JSON-LD validado no build;
+- sitemap com 88 URLs e links internos sem quebra;
+- Open Graph e Twitter Card com dimensoes e texto alternativo;
+- conteudo essencial disponivel sem JavaScript.
 
-## Conteúdo e rede
+## Conteudo e produto
 
-- zero capturas provisórias, mockups de celular ou telas falsas;
-- símbolo SVG derivado da marca canônica e registrado no repositório privado;
-- zero trackers, cookies não essenciais ou chamadas para terceiros;
-- fontes, imagens, CSS e JavaScript hospedados localmente;
-- nenhuma ocorrência pública de credenciais, e-mail pessoal, `workers.dev` ou hostname da API;
-- placeholders legais bloqueados fora do build.
+- nenhuma tela provisoria ou inventada;
+- planos e periodo de teste descritos sem prometer compra pelo site;
+- backup portatil `.rumman`, restauracao e sincronizacao descritos com seus limites;
+- estoque por local, locacoes e fluxo guiado apresentados sem promessas futuras;
+- nenhum acesso indiscriminado a testes ou disponibilidade publica anunciados.
 
-## Segurança
+## Seguranca
 
 - CSP sem `unsafe-inline`;
 - hashes SHA-256 calculados automaticamente para cada JSON-LD;
-- `nosniff`, proteção contra framing, Referrer Policy e Permissions Policy;
-- HTML sem atributos de evento, estilos inline ou scripts executáveis inline.
+- Cloudflare Web Analytics permitido apenas pelos hosts oficiais na CSP;
+- `nosniff`, protecao contra framing, Referrer Policy e Permissions Policy;
+- HTML sem atributos de evento, estilos inline ou scripts executaveis inline;
+- varredura do conteudo publico sem chaves, senhas, hosts internos ou credenciais.
 
-## Validação de produção
+## Validacao de producao
 
-- domínio oficial, páginas comerciais, blog, artigos, políticas, exclusão de conta, feed, sitemap, SVG e 404 verificados;
-- `/blog/` retorna HTTP 200 com canonical e sitemap alinhados;
-- HTML usa `no-cache` e assets versionados usam cache imutável;
-- CSP, HSTS, `nosniff`, proteção contra framing, Referrer Policy e Permissions Policy presentes;
-- desktop e viewport de 390 x 844 sem overflow;
-- nenhum erro ou aviso no console do navegador em produção.
+Esta secao sera concluida apos a publicacao do pacote 0.3.4 no dominio oficial.
