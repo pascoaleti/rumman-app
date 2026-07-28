@@ -72,4 +72,13 @@ Temas claro e escuro auditados em desktop e celular.
 
 ## Validacao de producao
 
-Esta secao sera concluida apos a publicacao do pacote 0.3.4 no dominio oficial.
+- pacote 0.3.4 publicado em `https://rumman.app.br`;
+- home, Recursos, Como usar, Planos, FAQ, Blog, Privacidade e Termos retornam HTTP 200;
+- sitemap, robots e as oito telas finais retornam HTTP 200;
+- rota inexistente retorna HTTP 404 com `noindex, follow`;
+- HTML usa os assets versionados `20260728-1`;
+- home e FAQ informam corretamente o teste fechado no Google Play;
+- pagina Como usar referencia as oito capturas finais;
+- CSP, HSTS, `nosniff` e protecao contra framing confirmados no dominio.
+- viewport de 390 x 844 sem overflow e com 15 px nas laterais de cabecalho, conteudo e rodape;
+- nenhum erro ou aviso no console durante a verificacao da home e da galeria.
